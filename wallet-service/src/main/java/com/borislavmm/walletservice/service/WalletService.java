@@ -67,7 +67,6 @@ public class WalletService {
         wallet.addCurrency(targetCurrencyInformation);
 
         walletRepository.save(wallet);
-
         return "Success";
     }
 
