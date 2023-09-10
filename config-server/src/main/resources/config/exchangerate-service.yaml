@@ -1,0 +1,11 @@
+server:
+  port: 8082
+
+api:
+  key: 9748e829fbad20b0fbb88322
+  endpoint: https://v6.exchangerate-api.com/v6
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
