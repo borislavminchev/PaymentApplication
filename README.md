@@ -1,2 +1,2 @@
 # PaymentApplication
-### Microservice aplication, simpulating payments between users
+### Microservice application, simulating payments between users
