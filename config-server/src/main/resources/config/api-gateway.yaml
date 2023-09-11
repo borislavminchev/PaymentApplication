@@ -1,0 +1,45 @@
+server:
+  port: 8086
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+app:
+  eureka-server: localhost:8761
+
+## Product Service Route
+spring:
+  cloud:
+    gateway:
+      routes[0]:
+        id: person-service
+        uri: lb://person-service
+        predicates[0]: Path=/api/person/**
+      routes[1]:
+        id: exchangerate-service
+        uri: lb://exchangerate-service
+        predicates[0]: Path=/api/pair/**
+      routes[2]:
+        id: discovery-server
+        uri: http://localhost:8761
+        predicates[0]: Path=/eureka/web
+        filters[0]: SetPath=/
+      routes[3]:
+        id: discovery-server-static
+        uri: http://localhost:8761
+        predicates[0]: Path=/eureka/**
+      routes[4]:
+        id: wallet-service
+        uri: lb://wallet-service
+        predicates[0]: Path=/api/wallet/**
+      routes[5]:
+        id: transaction-service
+        uri: lb://transaction-service
+        predicates[0]: Path=/api/transaction/**
+
+
+
+
