@@ -1,5 +1,6 @@
 package com.borislavmm.personservice.service;
 
+import com.borislavmm.personservice.dto.MoneyTransferRequest;
 import com.borislavmm.personservice.dto.PersonTransaction;
 import com.borislavmm.personservice.dto.TransactionRequest;
 import com.borislavmm.personservice.dto.WalletTransaction;
@@ -65,11 +66,11 @@ public class PersonService {
         Person sender = getPerson(personTransaction.getSenderId());
         Person receiver = getPerson(personTransaction.getReceiverId());
 
-        TransactionRequest transactionRequest =TransactionRequest.builder()
-                .walletSender(sender.getWallet())
-                .walletReceiver(receiver.getWallet())
-                .description(personTransaction.getDescription())
-                .currencyCode(personTransaction.getCurrencyCode())
+        MoneyTransferRequest transactionRequest = MoneyTransferRequest.builder()
+                .senderWallet(sender.getWallet())
+                .receiverWallet(receiver.getWallet())
+                .currencyCodeSend(personTransaction.getCurrencyCode())
+                .currencyCodeReceive(personTransaction.getCurrencyCode())
                 .amount(personTransaction.getAmount())
                 .build();
 
