@@ -48,7 +48,8 @@ public class WalletController {
     @ResponseStatus(HttpStatus.OK)
     public CompletableFuture<String> transferMoney(@RequestBody MoneyTransferRequest transferRequest) {
         return CompletableFuture.supplyAsync(() -> service.transferMoney(transferRequest.getSenderWallet(), transferRequest.getReceiverWallet(),
-                transferRequest.getCurrencyCodeSend(), transferRequest.getCurrencyCodeReceive(), transferRequest.getAmount()));
+                transferRequest.getCurrencyCodeSend(), transferRequest.getCurrencyCodeReceive(),
+                transferRequest.getDescription(), transferRequest.getAmount()));
     }
 
     @PostMapping("/delete-currency")

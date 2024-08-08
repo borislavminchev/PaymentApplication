@@ -12,5 +12,6 @@ public class MoneyTransferRequest {
     private String receiverWallet;
     private String currencyCodeSend;
     private String currencyCodeReceive;
+    private String description;
     private double amount;
 }

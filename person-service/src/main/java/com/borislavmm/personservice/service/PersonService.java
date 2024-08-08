@@ -71,6 +71,7 @@ public class PersonService {
                 .receiverWallet(receiver.getWallet())
                 .currencyCodeSend(personTransaction.getCurrencyCode())
                 .currencyCodeReceive(personTransaction.getCurrencyCode())
+                .description(personTransaction.getDescription())
                 .amount(personTransaction.getAmount())
                 .build();
 

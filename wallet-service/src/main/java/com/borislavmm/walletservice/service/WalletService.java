@@ -113,7 +113,7 @@ public class WalletService {
                 .build();
     }
     public String  transferMoney(String senderWallet, String receiverWallet,
-                                 String currencyCodeSend, String currencyCodeReceive, double amount) {
+                                 String currencyCodeSend, String currencyCodeReceive,String description, double amount) {
 
         double exchangeRate = 1;
         if(!currencyCodeSend.equals(currencyCodeReceive)) {
@@ -130,7 +130,7 @@ public class WalletService {
         this.takeMoney(senderWallet, currencyCodeSend, amount);
         this.addMoney(receiverWallet, currencyCodeReceive, amount*exchangeRate);
 
-        TransactionRequest message = buildTransaction(senderWallet, receiverWallet, "Money transfer",
+        TransactionRequest message = buildTransaction(senderWallet, receiverWallet, description,
                 currencyCodeReceive, amount*exchangeRate);
 
         rabbitTemplate.convertAndSend("money-transfer", message);
