@@ -1,6 +1,11 @@
 server:
   port: 8082
 
+spring:
+  redis:
+    host: localhost
+    port: 6379
+
 api:
   key: 9748e829fbad20b0fbb88322
   endpoint: https://v6.exchangerate-api.com/v6
